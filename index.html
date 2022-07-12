@@ -61,8 +61,11 @@
                 <div id="thumb">
 
                     <!-- // 1- al click su una thumb, visualizzare in grande l'immagine corrispondente -->
-                    <img v-for="(img, index) in immagini" @click="currentIndex = index" :src="img.url" :alt="img.title"
-                        class="scale" :class="{'scaleactive' : currentIndex === index} ">
+                    <!-- // 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce (questo richiederà degli eventi che non abbiamo visto) -->
+
+                    <img v-for="(img, index) in immagini" @click="currentIndex = index" v-on:mouseover="stopautoplay"
+                        v-on:mouseleave="autoplay" :src="img.url" :alt="img.title" class="scale"
+                        :class="{'scaleactive' : currentIndex === index} ">
                 </div>
                 <!-- Bottone Dopo -->
 

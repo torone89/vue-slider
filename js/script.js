@@ -17,8 +17,6 @@ Vue.config.devtools = true
 // Implementare il ciclo infinito: se sono sulla prima immagine e clicco prev, devo ricominciare dall'ultima. Se sono sull'ultima e clicco next, devo ripartire dalla prima.
 // Bonus:
 
-// 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente (questo richiederà qualcosa che non abbiamo visto)
-// 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce (questo richiederà degli eventi che non abbiamo visto)
 
 const slider = new Vue({
     el: '#root',
@@ -76,122 +74,22 @@ const slider = new Vue({
                 this.currentIndex = this.immagini.length - 1
         },
         // SLIDER AUTO TIME
+        // 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente (questo richiederà qualcosa che non abbiamo visto)
+
         autoplay: function () {
             this.time = setInterval(this.goNext, 3000)
         },
+        // 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce (questo richiederà degli eventi che non abbiamo visto)
+
+        stopautoplay: function () {
+            clearInterval(this.time);
+            this.time = 0;
+        },
+
     },
     // mounted() : viene eseguito prima di creare il componente.
     mounted() {
         this.autoplay()
     }
 })
-
-
-
-// const contenitore = document.getElementById("galleria")
-// console.log(contenitore)
-// const thumbnails = document.getElementById("thumb")
-
-// // Variabili di appoggio 
-// let item = '';
-// let thumb = '';
-// let active = [0];
-
-// for (let key in images) {
-//     item += `
-//      <div class="item">
-//     <img src="${images[key].url}" alt="${images[key].title}">
-// <div class="textcontent">
-//     <h3>${images[key].title}</h3>
-//     <p>${images[key].description}</p>
-//     </div>
-//       </div>
-//             `
-//     thumb += `
-//         <div class="thumb">
-//             <img class="scale" src="${images[key].url}" alt="${images[key].title}">
-//         </div>
-//     `
-// }
-
-// // STAMPO SUL DOM
-// contenitore.innerHTML += item
-// thumbnails.innerHTML += thumb
-
-// // / ## Milestone 2:
-// // Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l’utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sinistra.
-// // ---
-// // ## BONUS 1:
-// // Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
-
-
-// // Prendo le classi item&scale dal css per attivare disattivare stili sulle immagini
-
-// document.getElementsByClassName('item')[active].classList.add('active');
-
-// document.getElementsByClassName('scale')[active].classList.add('scaleactive');
-
-// // FUNZIONE GOtoNExt
-// const goToNext = () => {
-//     //rimuovo la classe active
-//     document.querySelector(".active").classList.remove('active')
-//     document.querySelector(".scaleactive").classList.remove('scaleactive')
-
-//     // incremento activindex 
-//     active++;
-
-//     // RIPARTO DA 0 quando arrivo in fondo alle immagini
-
-//     if (active > images.length - 1) {
-
-//         active = 0;
-//     }
-
-//     // aggiungo la classe active
-//     document.getElementsByClassName('item')[active].classList.add('active');
-//     document.getElementsByClassName('scale')[active].classList.add('scaleactive');
-// }
-
-// // Aggiungo i bottoni
-// const prima = document.getElementById('prima');
-// const dopo = document.getElementById('dopo');
-// console.log(prima, dopo)
-
-// // Invoco la funzione gotonext e uso l'AddeventListner per cliccare sul bottone dopo per
-// // passare all'immagine succesiva
-
-// dopo.addEventListener('click', goToNext)
-
-// // Aggiungere il ciclo infinito del carosello. Ovvero se l' immagine attiva è la prima 
-// // e l'utente clicca la freccia per andare indietro, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura s
-// // e l'utente clicca la freccia verso avanti, deve attivarsi la prima immgine.
-
-
-// prima.addEventListener('click', function () {
-//     //rimuovo la classe active
-//     document.querySelector(".active").classList.remove('active')
-//     document.querySelector(".scaleactive").classList.remove('scaleactive')
-
-//     // RIPARTO DA 0 quando arrivo in fondo alle immagini
-//     active--
-
-//     if (active < 0) {
-//         active = images.length - 1;
-//     }
-
-//     // aggiungo la classe active
-//     document.getElementsByClassName('item')[active].classList.add('active');
-//     document.getElementsByClassName('scale')[active].classList.add('scaleactive');
-// })
-
-
-// // ## BONUS 2:
-// // ## BONUS 2:
-// // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo 
-// // (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
-
-// setInterval(goToNext, 3000);
-
-
-
 
