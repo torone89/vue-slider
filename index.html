@@ -44,7 +44,7 @@
             <div class="carousel" id="root">
 
                 <!-- Bottone Prima -->
-                <i class="bi bi-arrow-left-square-fill" id="prima"></i>
+                <i class="bi bi-arrow-left-square-fill" id="prima" @click="goBack()"></i>
 
                 <div id="galleria">
                     <div v-for="(img, index) in immagini" :class="{'active' : currentIndex === index}" class="item">
@@ -64,7 +64,7 @@
                 </div>
                 <!-- Bottone Dopo -->
 
-                <i class="bi bi-arrow-right-square-fill" id="dopo"></i>
+                <i class="bi bi-arrow-right-square-fill" id="dopo" @click="goNext()"></i>
 
 
                 <div id="thumb">
