@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
 
-    <!-- STILE DI QUESTA PAGINA -->   
+    <!-- STILE DI QUESTA PAGINA -->
 
     <link rel="stylesheet" href="css/style.css">
 
- <!-- VUEJS -->
- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
+    <!-- VUEJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
 
 </head>
 
@@ -41,32 +41,36 @@
         <div class="container">
 
             <!-- CAROUSEL -->
-            <div id="carousel">
+            <div class="carousel" id="root">
 
                 <!-- Bottone Prima -->
                 <i class="bi bi-arrow-left-square-fill" id="prima"></i>
 
                 <div id="galleria">
+                    <div v-for="(img, index) in immagini" :class="{'active' : currentIndex === index}" class="item">
 
-                    <!-- <img src="./img/01.jpg" alt=""> -->
-                    <!-- ## Milstone 0:
-                    // Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l’immagine grande in modo da poter stilare lo slider.
-                    // ## Milestone 1: -->
-                    <!-- <div class="textcontent">
-                        <h3>titolo</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam
-                            omnis, magnam dolores dolorum corporis.</p>
+                        <img :src="img.url" :alt="img.title">
+
+                        <div class="textcontent">
+                            <h3>{{img.title}}</h3>
+                            <p>{{img.description}}</p>
+                        </div>
 
                     </div>
-                </div> -->
-                    <!-- Bottone Dopo -->
-                    <i class="bi bi-arrow-right-square-fill" id="dopo"></i>
+
+
+
 
                 </div>
+                <!-- Bottone Dopo -->
+
+                <i class="bi bi-arrow-right-square-fill" id="dopo"></i>
 
 
                 <div id="thumb">
+
+                    <img v-for="(img, index) in immagini" :src="img.url" :alt="img.title"
+                        :class="{'img' : currentIndex === index}">
 
                 </div>
 

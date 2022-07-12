@@ -1,7 +1,7 @@
 /* *************************/
 /* Main */
 /* *************************/
-#carousel {
+.carousel {
     margin: 40px auto;
     width: 700px;
     max-height: 300px;
