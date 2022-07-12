@@ -61,9 +61,7 @@ const slider = new Vue({
     },
     methods: {
         goNext() {
-
             // RIPARTO DA 0 quando arrivo in fondo alle immagini
-
             if (this.currentIndex == this.immagini.length - 1) {
 
                 this.currentIndex = 0;
@@ -73,15 +71,12 @@ const slider = new Vue({
             }
         },
         goBack() {
-
             if (this.currentIndex == 0) {
                 this.currentIndex = this.immagini.length - 1
             } else {
                 this.currentIndex--;
             }
         },
-
-
     }
 })
 

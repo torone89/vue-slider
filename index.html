@@ -58,8 +58,12 @@
 
                     </div>
 
+                </div>
 
+                <div id="thumb">
 
+                    <img v-for="(img, index) in immagini" :src="img.url" :alt="img.title" class="scale"
+                        :class="{'scaleactive' : currentIndex === index}">
 
                 </div>
                 <!-- Bottone Dopo -->
@@ -67,12 +71,7 @@
                 <i class="bi bi-arrow-right-square-fill" id="dopo" @click="goNext()"></i>
 
 
-                <div id="thumb">
 
-                    <img v-for="(img, index) in immagini" :src="img.url" :alt="img.title"
-                        :class="{'img' : currentIndex === index}">
-
-                </div>
 
             </div>
 

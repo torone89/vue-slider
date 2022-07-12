@@ -86,7 +86,7 @@
     padding-top: 30px;
 }
 
-#thumb img {
+#thumb img.scale {
     width: 130px;
     height: 100px;
     border-radius: 20px;
