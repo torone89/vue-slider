@@ -60,9 +60,9 @@
 
                 <div id="thumb">
 
-                    <img v-for="(img, index) in immagini" :src="img.url" :alt="img.title" class="scale"
-                        :class="{'scaleactive' : currentIndex === index}">
-
+                    <!-- // 1- al click su una thumb, visualizzare in grande l'immagine corrispondente -->
+                    <img v-for="(img, index) in immagini" @click="currentIndex = index" :src="img.url" :alt="img.title"
+                        class="scale" :class="{'scaleactive' : currentIndex === index} ">
                 </div>
                 <!-- Bottone Dopo -->
 
