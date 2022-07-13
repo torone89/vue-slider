@@ -47,7 +47,8 @@
                 <i class="bi bi-arrow-left-square-fill" id="prima" @click="goBack()"></i>
 
                 <div id="galleria">
-                    <div v-for="(img, index) in immagini" :class="{'active' : currentIndex === index}" class="item">
+                    <div v-for="(img, index) in immagini" v-on:mouseover="stopautoplay"
+                    v-on:mouseleave="autoplay" :class="{'active' : currentIndex === index}" class="item">
 
                         <img :src="img.url" :alt="img.title">
 
